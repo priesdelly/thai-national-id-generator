@@ -3,9 +3,31 @@
 
 <head>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X143BDY6FJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-X143BDY6FJ');
+    </script>
+
+    <title>Thai National ID Generator</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Thai National ID Generator, Developer: Priesdelly, Category: Tools">
+    <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=" />
+
+    <meta property="og:url" content="https://priesdelly.github.io/thai-national-id-generator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Thai National ID Generator" />
+    <meta property="og:description"
+        content="โปรแกรมสำหรับสุ่มตัวเลข 13 หลัก เพื่อใช้ในการศึกษาและทดสอบระบบคอมพิวเตอร์เท่านั้น" />
+    <meta property="og:image" content="img/og_img600.jpg" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
@@ -13,7 +35,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap">
 
-    <title>Thai National ID Generator</title>
+
 
     <style>
         body,
@@ -33,7 +55,6 @@
         .footer {
             background-color: #f5f5f5;
         }
-
     </style>
 </head>
 
@@ -53,15 +74,15 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="container mt-4">
-        
+
             <div class="row">
                 <div class="col-12">
                     <p class="lead">สำหรับสุ่มตัวเลข 13 หลัก เพื่อใช้ในการศึกษาและทดสอบระบบคอมพิวเตอร์เท่านั้น</p>
                 </div>
             </div>
-        
+
             <div class="row">
                 <div class="col-lg-4">
                     <div class="form-group">
@@ -75,7 +96,7 @@
                     <button id="btnGen" class="btn btn-primary">Generate</button>
                 </div>
             </div>
-        
+
         </div>
     </main>
 
@@ -95,9 +116,16 @@
     <script>
         $(function () {
             $('#btnGen').on('click', function (e) {
-                generate();
+                var foo = generate();
+                if (foo.startsWith('0')) {
+                    console.log('found prefix with 0 - regenerate');
+                    $('#btnGen').trigger('click');
+                    return;
+                }
+                $('#txtBox1').val(foo);
             });
         });
     </script>
 </body>
+
 </html>

@@ -15,7 +15,7 @@ function generate() {
 
   bar = (11 - bar % 11) % 10;
   output = output.concat(bar);
-  $('#txtBox1').val(output);
+  return output;
 }
 
 function rand() {
